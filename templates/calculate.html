@@ -1,0 +1,30 @@
+<html>
+<head>
+<head>
+
+<body>
+<div class="calculate">
+    <hi>Calculate average marks</h>
+
+    <!--Main INput for recieving query for our ML-->
+    <form action = "{{url_for('calculatemarks')}}" method = "POST">
+        <input type="text" name="maths" placeholder="Maths" required=“required”/>
+        <input type="text" name="science" placeholder="Science" required=“required”/>
+        <input type="text" name="history" placeholder="History" required=“required”/>
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Calculate Button</button>
+    </form>
+    cl
+    <br>
+    <br>
+
+    {% if results >=50 
+    <h1> The result is pass and avg marks is {{results}}</h1>
+    {% else %}
+    <h1> The result is fail and avg marks is {{results}}</h1>
+    {% endif %}
+    }
+
+</div>
+
+</body>
