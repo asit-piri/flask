@@ -1,7 +1,6 @@
 # Create a simple Flask application
 
 from flask import Flask, render_template, request, redirect, url_for
-
 # Create the Flask app
 
 app = Flask(__name__)
@@ -26,7 +25,7 @@ def success(score):
 def fail(score):
     return "The person had failed and the score is: " + str(score)
 
-@app.route('/calculate', methods = ['POST', 'GET'])
+@app.route('/calculate',methods=['POST','GET'])
 def calculate():
     if request.method=='GET':
         return render_template('calculate.html')
@@ -35,29 +34,21 @@ def calculate():
         science = float(request.form['science'])
         history = float(request.form['history'])
 
-        average_marks = (maths + science + history)/3
-        result = ""
+        average_marks=(maths + science + history) / 3
+        result = "" 
         if average_marks >= 50:
-            result = "Success"
+            result = "success"
         else:
-            result = "Fail"
+            result = "fail"
 
-        return redirect(url_for(result))
-        return render_template('result.html', results = average_marks)
+        #return redirect(url_for(result,score=average_marks))
+
+        return render_template('result.html',results=average_marks)
 
 
 @app.route('/calculatemarks')
 def calculatemarks():
     return render_template('calculate.html')
-
-
-
-
-
- 
-
-
-
 
 
 if __name__ == '__main__':
